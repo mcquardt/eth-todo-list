@@ -1,9 +1,18 @@
-eth todo app based on sample applications
+# Session Nr. 1
+## compilation and abi differences
+Compiled the `ToDolist.sol` file in two different iterations:
+- uint `taskCount` was not set to `public` and after compilation the abi was empty
+- uint `taskCount` was set to public and the abi was not empty anymore. This suggests the variable `taskCount` can be accessed fromoutside ethereum
 
-Folder structure
--contracts: contracts live here. Migration handles migration to the blockchain
--migrations directory:all migration files live here
--node_modules: node dependencies
--test dir: tests for smart contract
--truffle-config: main config file
--build: contains the contracts Abstract Binary Interfaces - ABIs. contains the compiled bytecode version of the solidity smart contract, which can be run on the EVM. Also contains JSON representation of the smart contract functions, which can be exposted to external clients, like client-side JavaScript applications
+## Accesing the initially deployed contract
+1. Get the contracts abi and address
+2. Create the contract object with `web3.eth.Contract(jsonInterface[, address][, options])`
+3. This contract object can now be used
+
+## Calling a contracts function via the contract object
+1. `contract.methods.getGreeting().call()
+    .then((result, error) => {console.log(result, error)})`
+2. Using the promise api
+3. Initially questions arose about the meaning of the `public` keyword in solidity. Compare the `TodoList.sol` and the `Greeting.sol` contract. the state variables `dueDate` and `greeting` can be accessed. However In the `Greeting.sol` contract the `greeting` state variable is not declared public. The function `getGreeting` returns the value of it though via a predefined function. This is basically what the `public` keyword also does. It sets a getter function.
+- ToDO: Check how the abi of the `TodoList.sol` looks the getter and setter function should appear there somewhere (I think)
+
