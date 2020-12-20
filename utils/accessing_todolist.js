@@ -8,16 +8,10 @@ const MyContract = require('../build/contracts/TodoList.json')
  //create contract object
  const contract = new web3.eth.Contract(
      MyContract.abi,
-     '0xc9485cCa8Cbc04a6504029578642190328E9Ae57' //taken from the ganache gui - hardcoded
+     MyContract.networks['5777'].address //taken from the ganache gui - hardcoded
  );
 
-console.log(contract.options.address)
-//console.log(contract.taskCount)
-//console.log(contract)
 
 contract.methods.dueDate().call()
     .then(result => console.log(result))
 
-
- //console.log(MyContract.abi)
- console.log('hi')

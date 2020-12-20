@@ -8,16 +8,23 @@ const MyContract = require('../build/contracts/Greeting.json')
  //create contract object
  const contract = new web3.eth.Contract(
      MyContract.abi,
-     '0x92A6eadAEEBdA15331022f4dFb409552f4A3a6e0' //taken from the ganache gui - hardcoded
+     MyContract.networks['5777'].address //taken from the ganache gui - hardcoded
+     //MyContract.networks[5777].address
  );
 
-console.log(contract.options.address)
+
+//console.log(MyContract.networks)
+//console.log(MyContract.networks['5777'].address)
+
+
+//console.log(contract.options.address)
 //console.log(contract.taskCount)
 //console.log(contract)
 
 contract.methods.getGreeting().call()
     .then((result, error) => {console.log(result, error)})
 
-
+contract.methods.getGreeting().call()
+    .then((result, error) => {console.log(result, error)})
  //console.log(MyContract.abi)
  //console.log('hi')

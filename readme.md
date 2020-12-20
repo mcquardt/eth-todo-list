@@ -16,3 +16,8 @@ Compiled the `ToDolist.sol` file in two different iterations:
 3. Initially questions arose about the meaning of the `public` keyword in solidity. Compare the `TodoList.sol` and the `Greeting.sol` contract. the state variables `dueDate` and `greeting` can be accessed. However In the `Greeting.sol` contract the `greeting` state variable is not declared public. The function `getGreeting` returns the value of it though via a predefined function. This is basically what the `public` keyword also does. It sets a getter function.
 - ToDO: Check how the abi of the `TodoList.sol` looks the getter and setter function should appear there somewhere (I think)
 
+## Moving forward with the `Todolist.sol` contract
+1. Creating the first `struct`. Structs are similar to classes in oop languages. 
+2. Creating the first `mapping`. Mappings in solidity are similar to 'associative arrays' or hashes in different programming languages. A `mapping` creates key-value pairs which are stored on the blockchain
+
+
