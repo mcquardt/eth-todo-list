@@ -9,8 +9,8 @@ contract TodoList {
     }
 
     //
-    uint public taskCount = 2;
-    uint public dueDate = 5;
+    uint public taskCount = 0;
+    uint public dueDate = 2021;
 
     //Defines the task struct - not an instatiation
     struct Task {

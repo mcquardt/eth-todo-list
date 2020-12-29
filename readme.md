@@ -20,4 +20,12 @@ Compiled the `ToDolist.sol` file in two different iterations:
 1. Creating the first `struct`. Structs are similar to classes in oop languages. 
 2. Creating the first `mapping`. Mappings in solidity are similar to 'associative arrays' or hashes in different programming languages. A `mapping` creates key-value pairs which are stored on the blockchain
 
+## `_` in Solidity files
+1. variables with `_` in them typically refer to function parameters. Whereas variables without the underscores are used as global variables. There is no semantic difference between them. The style is used to differentiate between function arguments and global variables
 
+## Sending Ether to adresses vs contracts
+1. Sending Ether to an address can be done via `web3.eth.sendTransaction{ ... }`. Interestingly this does not work by default when changing the receiving adress to that of a contract. Sending ether to a smart contract is possible either
+2. There are two ways to send ether to a contract. First one is to use `contract.methods.foobar().send({...})` is is possible if the function defined in the smart contract is classified as being `payable`. Second option is to use `web3.eth.sendTransaction({...})`. This only works if a fallback function within the smart contract is defined as it is being classified as being `payable`. The `SendEtherToContract.sol` file assembly demonstrates this
+
+## Sending transaction to a smart contract
+1. In order to interact with an Ethereum smart contrac two APIs exist. Either `.call()` method or the `.send()` method. `.call()` only allows reading information from the blockchain whereas `.send()` also allows chaning the state of the blockchain
