@@ -9,22 +9,11 @@ const MyContract = require('../build/contracts/Greeting.json')
  const contract = new web3.eth.Contract(
      MyContract.abi,
      MyContract.networks['5777'].address //taken from the ganache gui - hardcoded
-     //MyContract.networks[5777].address
  );
 
 
-//console.log(MyContract.networks)
-//console.log(MyContract.networks['5777'].address)
-
-
-//console.log(contract.options.address)
-//console.log(contract.taskCount)
-//console.log(contract)
-
 contract.methods.getGreeting().call()
     .then((result, error) => {console.log(result, error)})
 
 contract.methods.getGreeting().call()
     .then((result, error) => {console.log(result, error)})
- //console.log(MyContract.abi)
- //console.log('hi')
